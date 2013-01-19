@@ -1,6 +1,4 @@
 library UnitIndexer uses WorldBounds, Event
-	//! include "!! settings.j"
-
     globals
         private trigger q=CreateTrigger()
         private trigger l=CreateTrigger()
