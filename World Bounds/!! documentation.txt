@@ -1,0 +1,10 @@
+struct WorldBounds extends array
+
+	readonly static integer maxX
+	readonly static integer maxY
+	readonly static integer minX
+	readonly static integer minY
+	readonly static integer centerX
+	readonly static integer centerY
+	readonly static rect world
+	readonly static region worldRegion
