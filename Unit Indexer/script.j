@@ -1,4 +1,4 @@
-library UnitIndexer uses WorldBounds, Event
+library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
     globals
         private trigger q=CreateTrigger()
         private trigger l=CreateTrigger()
