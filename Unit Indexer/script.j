@@ -117,11 +117,11 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
         endmethod
         static method operator enabled= takes boolean b returns nothing
             if (b) then
-                call DisableTrigger(q)
-                call DisableTrigger(l)
-            else
                 call EnableTrigger(q)
                 call EnableTrigger(l)
+            else
+                call DisableTrigger(q)
+                call DisableTrigger(l)
             endif
         endmethod
         private static method onEnter takes nothing returns boolean
