@@ -130,6 +130,9 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             local unit Q=GetTriggerUnit()
             local integer i
             local integer d=o
+            if (Q == null) then
+                set Q = GetFilterUnit()
+            endif
             if (Q!=e[GetUnitUserData(Q)] and 0==GetUnitUserData(Q)) then
                 if (0==y) then
                     set r=r+1
