@@ -127,7 +127,7 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             endif
         endmethod
         private static method onEnter takes nothing returns boolean
-            local unit Q=GetFilterUnit()
+            local unit Q=GetTriggerUnit()
             local integer i
             local integer d=o
             if (Q!=e[GetUnitUserData(Q)] and 0==GetUnitUserData(Q)) then
@@ -167,7 +167,7 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             static if LIBRARY_UnitEvent then
                 implement optional UnitEventModule
             else
-                local unit u=GetFilterUnit()
+                local unit u=GetTriggerUnit()
                 local integer i=GetUnitUserData(u)
                 local integer d=o
                 if (0==GetUnitAbilityLevel(u,ABILITIES_UNIT_INDEXER) and u==e[i]) then
