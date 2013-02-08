@@ -66,10 +66,12 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             local player p
             set INDEX=CreateEvent()
             set DEINDEX=CreateEvent()
-            call TriggerRegisterEnterRegion(q,WorldBounds.worldRegion,bc2)
+            call TriggerAddCondition(q, bc2)
+            call TriggerAddCondition(l, bc)
+            call TriggerRegisterEnterRegion(q,WorldBounds.worldRegion,null)
             loop
                 set p=Player(i)
-                call TriggerRegisterPlayerUnitEvent(l,p,EVENT_PLAYER_UNIT_ISSUED_ORDER,bc)
+                call TriggerRegisterPlayerUnitEvent(l,p,EVENT_PLAYER_UNIT_ISSUED_ORDER,null)
                 call SetPlayerAbilityAvailable(p,ABILITIES_UNIT_INDEXER,false)
                 call GroupEnumUnitsOfPlayer(g,p,bc2)
                 exitwhen 0==i
