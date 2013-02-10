@@ -112,7 +112,7 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
     struct UnitIndexer extends array
         readonly static Event INDEX
         readonly static Event DEINDEX
-        readonly static boolean enabled = true
+        static boolean enabled = true
         private static method onEnter takes nothing returns boolean
             local unit Q=GetFilterUnit()
             local integer i
