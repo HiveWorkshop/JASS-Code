@@ -66,12 +66,10 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             local player p
             set INDEX=CreateEvent()
             set DEINDEX=CreateEvent()
-            call TriggerAddCondition(q, bc2)
-            call TriggerAddCondition(l, bc)
-            call TriggerRegisterEnterRegion(q,WorldBounds.worldRegion,null)
+            call TriggerRegisterEnterRegion(q,WorldBounds.worldRegion,bc2)
             loop
                 set p=Player(i)
-                call TriggerRegisterPlayerUnitEvent(l,p,EVENT_PLAYER_UNIT_ISSUED_ORDER,null)
+                call TriggerRegisterPlayerUnitEvent(l,p,EVENT_PLAYER_UNIT_ISSUED_ORDER,bc)
                 call SetPlayerAbilityAvailable(p,ABILITIES_UNIT_INDEXER,false)
                 call GroupEnumUnitsOfPlayer(g,p,bc2)
                 exitwhen 0==i
@@ -114,26 +112,12 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
     struct UnitIndexer extends array
         readonly static Event INDEX
         readonly static Event DEINDEX
-        static method operator enabled takes nothing returns boolean
-            return IsTriggerEnabled(q)
-        endmethod
-        static method operator enabled= takes boolean b returns nothing
-            if (b) then
-                call EnableTrigger(q)
-                call EnableTrigger(l)
-            else
-                call DisableTrigger(q)
-                call DisableTrigger(l)
-            endif
-        endmethod
+        readonly static boolean enabled = true
         private static method onEnter takes nothing returns boolean
-            local unit Q=GetTriggerUnit()
+            local unit Q=GetFilterUnit()
             local integer i
             local integer d=o
-            if (Q == null) then
-                set Q = GetFilterUnit()
-            endif
-            if (Q!=e[GetUnitUserData(Q)] and 0==GetUnitUserData(Q)) then
+            if (enabled and Q!=e[GetUnitUserData(Q)] and 0==GetUnitUserData(Q)) then
                 if (0==y) then
                     set r=r+1
                     set i=r
@@ -170,7 +154,7 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
             static if LIBRARY_UnitEvent then
                 implement optional UnitEventModule
             else
-                local unit u=GetTriggerUnit()
+                local unit u=GetFilterUnit()
                 local integer i=GetUnitUserData(u)
                 local integer d=o
                 if (0==GetUnitAbilityLevel(u,ABILITIES_UNIT_INDEXER) and u==e[i]) then
