@@ -1,3 +1,11 @@
+library UnitIndexerSettings
+
+    globals
+		constant integer ABILITIES_UNIT_INDEXER = 'A000'
+	endglobals
+
+endlibrary
+
 library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
     globals
         private trigger q=CreateTrigger()
@@ -84,6 +92,12 @@ library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
         endmethod
     endmodule
     struct UnitIndex extends array
+        method operator locks takes nothing returns integer
+            return lc[this]
+        endmethod
+        method operator locks= takes integer v returns nothing
+            set lc[this] = v
+        endmethod
         method lock takes nothing returns nothing
             debug if (null!=e[this]) then
                 set lc[this]=lc[this]+1
