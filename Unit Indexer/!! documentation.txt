@@ -64,6 +64,9 @@ struct UnitIndex extends UnitIndexStructMethods
 
 	-    Constrols specific unit indexes.
 
+	integer locks
+	    -    The lock and unlock methods do not inline. This does inline.
+
 	method lock takes nothing returns nothing
 	    -   Locks an index. When an index is locked, it will not be recycled
 	    -   when the unit is deindexed until all locks are removed. Deindex
