@@ -1,11 +1,3 @@
-library UnitIndexerSettings
-
-    globals
-		constant integer ABILITIES_UNIT_INDEXER = 'A000'
-	endglobals
-
-endlibrary
-
 library UnitIndexer uses WorldBounds, Event, UnitIndexerSettings
     globals
         private trigger q=CreateTrigger()
