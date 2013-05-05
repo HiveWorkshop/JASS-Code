@@ -50,9 +50,9 @@ Requirements
 
 	Event
 		
-		https://github.com/nestharus/JASS-Code/tree/master/Event
+		https://github.com/HiveWorkshop/JASS-Code/tree/master/Event
 		
 	World Bounds
 		
 		
-		https://github.com/nestharus/JASS-Code/tree/master/World%20Bounds
+		https://github.com/HiveWorkshop/JASS-Code/tree/master/World%20Bounds
