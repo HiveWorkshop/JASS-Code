@@ -5,7 +5,7 @@
 library UnitIndexerSettings
 
 	globals
-		constant integer ABILITIES_UNIT_INDEXER = 'A000' //test
+		constant integer ABILITIES_UNIT_INDEXER = 'A000'
 	endglobals
 	
 endlibrary
